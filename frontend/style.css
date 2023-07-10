@@ -1,0 +1,468 @@
+* {
+  background-color: rgb(241, 241, 241);
+}
+
+.outer-div {
+  display: grid;
+  place-items: center;
+  background-color: #c6c4c4;
+  margin: 80px;
+  border-radius: 50px;
+  padding: 80px;
+}
+
+.slider {
+  border-radius: 30px;
+  width: 85%;
+  height: 25em;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.slide:first-child {
+  display: block;
+}
+
+#prevButton,
+#nextButton {
+  width: 7em;
+  position: absolute;
+  margin: 9em;
+  background-color: #c6c4c4;
+  border: none;
+}
+
+#prevButton img,
+#nextButton img {
+  width: 100%;
+  background-color: #c6c4c4;
+}
+
+#nextButton {
+  right: 0;
+}
+
+#prevButton {
+  left: 0;
+}
+
+#tvOff {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: rgb(239, 78, 85);
+}
+
+#tvOffImg {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: rgb(239, 78, 85);
+}
+
+#tvOn {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: rgb(71, 218, 112);
+}
+
+#tvOnImg {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: rgb(71, 218, 112);
+}
+
+#remoteControl {
+  background-color: rgb(71, 218, 112);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.remoteControlButtons {
+  background-color: rgb(71, 218, 112);
+  display: flex;
+}
+
+.remoteControlButton {
+  background-color: rgb(71, 218, 112);
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin: 1em;
+  padding: 5px;
+  border-radius: 50em;
+}
+
+.remoteControlButton.active {
+  background-color: #c6c4c4;
+}
+
+.tvPrevButton,
+.tvNextButton {
+  width: 5em;
+  position: absolute;
+  background-color: rgb(71, 218, 112);
+  border: none;
+}
+
+.tvPrevButton {
+  left: 0;
+}
+
+.tvNextButton {
+  right: 0;
+}
+
+.tvNextButton img,
+.tvPrevButton img {
+  width: 100%;
+  background-color: rgb(71, 218, 112)
+}
+
+#lightOff,
+#bookOff,
+#musicOff,
+#voiceCommandOff {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: rgb(239, 78, 85);
+}
+
+#lightOffImg,
+#bookOffImg,
+#musicOffImg,
+#voiceCommandOffImg {
+  align-self: center;
+  width: 50%;
+  height: 100%;
+  padding: 0;
+  background-color: rgb(239, 78, 85);
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.wrapper {
+  max-width: 1100px;
+  width: 100%;
+  position: relative;
+}
+
+.wrapper i {
+  top: 50%;
+  margin: 23px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+
+.wrapper i:active {
+  transform: translateY(-50%) scale(0.85);
+}
+
+.wrapper i:first-child {
+  left: -22px;
+}
+
+.wrapper i:last-child {
+  right: -22px;
+}
+
+.wrapper .bookcarousel, .wrapper .musiccarousel,.wrapper .voicecarousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3) - 12px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  border-radius: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.bookcarousel::-webkit-scrollbar,.musiccarousel::-webkit-scrollbar,.voicecarousel::-webkit-scrollbar {
+  display: none;
+}
+
+.bookcarousel.no-transition,.musiccarousel.no-transition,.voicecarousel.no-transition {
+  scroll-behavior: auto;
+}
+
+.bookcarousel.dragging,.musiccarousel.dragging,.voicecarousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.bookcarousel.dragging .card,.musiccarousel.dragging .card,.voicecarousel.dragging .card  {
+  cursor: grab;
+  user-select: none;
+  background-color: rgb(239, 78, 85);
+}
+
+.bookcarousel :where(.card, .img),.musiccarousel :where(.card, .img),.voicecarousel :where(.card, .img) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookcarousel,.musiccarousel,.voicecarousel {
+  margin: 25px 0px 25px 0px;
+  scroll-snap-align: start;
+  height: 342px;
+  list-style: none;
+  cursor: pointer;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.bookcarousel .card .img,.musiccarousel .card .img,.voicecarousel .card .img  {
+  background: #8B53FF;
+  height: 150px;
+  width: 150px;
+  border-radius: 25%;
+}
+
+.card .img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 25%;
+  object-fit: cover;
+  border: 4px solid #fff;
+
+}
+
+.bookcarousel .card h2,.musiccarousel .card h2,.voicecarousel .card h2 {
+  font-weight: 500;
+  font-size: 1.56rem;
+  margin: 30px 0 5px;
+  width: 80%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.bookcarousel .card span, .musiccarousel .card span,.voicecarousel .card span {
+  color: #6A6D78;
+  font-size: 1.31rem;
+  width: 80%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.card img,
+.card {
+  scroll-snap-align: start;
+  height: 325px;
+  list-style: none;
+  cursor: pointer;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: rgb(239, 78, 85);
+}
+
+.card img{
+  background-color: rgb(241, 241, 241);
+}
+
+.card.voicecard.active,.card.musiccard.active, .card.bookcard.active {
+  background-color: #c6c4c4;
+}
+
+#voiceSlideKeyboard {
+  display: none;
+  width: 100%;
+  background-color: rgb(71, 218, 112);
+}
+
+.keyboardCommand {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+  background-color: rgb(71, 218, 112);
+}
+
+#keyboard {
+  width: 50%;
+  margin-left: 1em;
+  margin-top:0.5em;
+  background-color: rgb(71, 218, 112);
+}
+
+.row {
+  display: flex;
+  margin-bottom: 10px;
+  width: auto;
+  background-color: rgb(71, 218, 112);
+}
+
+.key {
+  display: inline-block;
+  width: 50px;
+  height: 40px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#keyboardPrevButton,
+#keyboardNextButton,
+#favButton {
+  text-align: center;
+  border:none;
+  background-color: rgb(71, 218, 112);
+}
+
+.keyboardText {
+  width: 50%;
+  height: auto;
+  text-align: center;
+  margin-right: 3em;
+  margin-top:0.5em;
+  background-color: rgb(71, 218, 112);
+  
+}
+
+#textbox {
+  background-color: #e7e5e5;
+  width: 100%;
+  height: 75%;
+  border-radius: 15px;
+  vertical-align: top;
+  padding: 10px;
+}
+
+.key:hover {
+  background-color: #aba0a0;
+}
+
+#favoritesSection {
+  display: none;
+  height: 100%;
+  background-color: rgb(71, 218, 112);
+  /* margin-top: -10px; */
+}
+#favoritesSection .nofilefav{
+  width: 50px;
+  display:none;
+}
+#favoritesList {
+  list-style-type: none;
+  background-color: rgb(71, 218, 112);
+
+}
+
+.favback img{
+  width: 40px;
+}
+
+/* #navigation {
+  margin-top: 20px;
+} */
+
+#keyboardPrevButton img,
+#keyboardNextButton img {
+  width: 50px;
+  cursor: pointer;
+  margin: 1em;
+  background-color: rgb(71, 218, 112);
+}
+
+#favSection {
+  display: none;
+  background-color: rgb(71, 218, 112);
+  
+}
+
+.key img{
+  width: 25px;
+}
+
+.favDeleteBtn{
+  background-color: rgb(239, 78, 85);
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  /* margin: 0px 1px 0px 10px; */
+  /* margin-top: 2px; */
+  /* right: 10px; */
+}
+
+.favEditBtn{
+  background-color: #dfd8d8;
+  border-radius: 8px;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  /* margin: 0px 1px 0px 10px; */
+  /* float:right; */
+
+
+}
+.favList{
+  align-items: center;
+  display: flex;
+  background-color: rgb(71, 218, 112);
+  height: 66px;
+
+}
+.favText{
+  /* margin-left:3px; */
+  background-color: #dfd8d8;
+  width: 80%;
+  display: inline-block;
+  border: solid black 2px;
+  padding: 5px;
+  border-radius: 8px;
+  margin-right: 10px;
+  text-align: center;
+
+  /* margin-bottom: 0px; */
+  
+}
+#deletefav{
+  width: 25px;
+  height: 28px;
+  background-color: rgb(239, 78, 85);
+
+}
+#editfav{
+  width: 25px;
+  height: 28px;
+  background-color: #dfd8d8;
+
+}
+/* .nofilefav{
+  width: px;
+height: 10px;
+} */

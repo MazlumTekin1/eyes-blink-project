@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fontawesome Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <title>MyProject</title>
+</head>
+
+<body>
+    <div class="outer-div">
+        <button id="prevButton" onclick="ClickPrev()"><img src="img\prevButton.png" alt=""></button>
+        <button id="nextButton" onclick="ClickNext()"><img src="img\nextButton.png" alt=""></button>
+
+        <div class="slider">
+            <!-- TV Control  -->
+            <div class="slide">
+
+                <div id="tvOff" onclick="tvButton('tvOff','tvOn','prevButton','nextButton')">
+                    <img id="tvOffImg" src="img\TV.png" alt="">
+                </div>
+
+                <div id="tvOn" onclick="remoteControlOnButton('tvOn','prevButton','nextButton')">
+                    <img id="tvOnImg" src="img\TV.png" alt="">
+                </div>
+
+                <div id="remoteControl">
+                    <div class="remoteControlButtons">
+
+                        <img class="remoteControlButton active" id="remoteControlImg1"
+                            src="img\remoteControlButton1.png" alt="">
+                        <img class="remoteControlButton" id="remoteControlImg2" src="img\remoteControlButton2.png"
+                            alt="">
+                        <img class="remoteControlButton" id="remoteControlImg3" src="img\remoteControlButton5.png"
+                            alt="">
+                        <img class="remoteControlButton" id="remoteControlImg4" src="img\remoteControlButton6.png"
+                            alt="">
+                        <img class="remoteControlButton" id="remoteControlImg5" src="img\remoteControlButton4.png"
+                            alt="">
+                        <img class="remoteControlButton" id="remoteControlImg6" src="img\remoteControlButton3.png"
+                            alt="">
+
+
+                    </div>
+                    <button class="tvPrevButton" onclick="tvPrevButtonFunc()"><img src="img\tvPrevButton.png"
+                            alt=""></button>
+                    <button class="tvNextButton" onclick="tvNextButtonFunc()"><img src="img\tvNextButton.png"
+                            alt=""></button>
+                </div>
+            </div>
+
+            <!-- Light Control -->
+            <div class="slide">
+                <div id="lightOff" onclick="lightButton('lightOff','lightOffImg')">
+                    <img id="lightOffImg" src="img\light.png" alt="">
+                </div>
+            </div>
+
+            <!-- Books Control -->
+            <div class="slide">
+                <div id="bookOff" onclick="bookOnButton('bookOff','prevButton','nextButton','wrapper1','left1')">
+                    <img id="bookOffImg" src="img\book.png" alt="">
+                </div>
+
+                <div class="wrapper" id="wrapper1">
+                    <i id="left1" class="fa-solid fa-angle-left bookleft"></i>
+                    <ul class="bookcarousel" id="bookcarousel">
+                        <li id="bookCard1" class="card bookcard "
+                            onclick="bookOffButton('wrapper1','bookOff','nextButton','prevButton')">
+                            <div class="img"><img src="img/remoteControlButton4.png" alt="img" draggable="false"></div>
+                            <h2>Menüye Dön</h2>
+                            <br>
+                        </li>
+                        <li id="bookCard2" class="card bookcard" style="background-color: rgb(239, 78, 85);" onclick="playAudio('bookCard2','bookOffImg','bookOff','myAudio1')">
+                            <div class="img"><img src="img/book1.png" alt="img" draggable="false"></div>
+                            <h2>Romeo ve Juliet</h2>
+                            <span>William Shakespeare</span>
+                            <audio id="myAudio1">
+                                <source src="img/kitap1.mp3" type="audio/mpeg">
+                            </audio>
+                        </li>
+                        <li id="bookCard3" class="card bookcard" onclick="playAudio('bookCard3','bookOffImg','bookOff','myAudio1')">
+                            <div class="img"><img src="img/book.png" alt="img" draggable="false"></div>
+                            <h2>Kitap 3</h2>
+                            <span>Online Teacher</span>
+                        </li>
+                        <li id="bookCard4" class="card bookcard" onclick="changeColor('card4')">
+                            <div class="img"><img src="img/book.png" alt="img" draggable="false"></div>
+                            <h2>Kitap 4</h2>
+                            <span>Freelancer</span>
+                        </li>
+                        <li id="bookCard5" class="card bookcard" onclick="changeColor('card5')">
+                            <div class="img"><img src="img/book.png" alt="img" draggable="false"></div>
+                            <h2>Kitap 5</h2>
+                            <span>Bank Manager</span>
+                        </li>
+                        <li id="bookCard6" class="card bookcard" onclick="changeColor('card5')">
+                            <div class="img"><img src="img/book.png" alt="img" draggable="false"></div>
+                            <h2>Kitap 6</h2>
+                            <span>Bank Manager</span>
+                        </li>
+                    </ul>
+                    <i id="right1" class="fa-solid fa-angle-right bookright"></i>
+                </div>
+            </div>
+
+            <!-- Musics Control -->
+            <div class="slide">
+                <div id="musicOff" onclick="musicOnButton('musicOff','prevButton','nextButton','wrapper2','left2')">
+                    <img id="musicOffImg" src="img\music.png" alt="">
+                </div>
+
+                <div class="wrapper" id="wrapper2">
+                    <i id="left2" class="fa-solid fa-angle-left musicleft"></i>
+                    <ul class="musiccarousel" id="musiccarousel">
+                        <li id="musicCard1" class="card musiccard"
+                            onclick="musicOffButton('wrapper2','musicOff','nextButton','prevButton')">
+                            <div class="img"><img src="img/remoteControlButton4.png" alt="img" draggable="false"></div>
+                            <h2>Menüye Dön</h2>
+                            <br>
+                        </li>
+                        <li id="musicCard2" class="card musiccard" onclick="playAudio('musicCard2','musicOffImg','musicOff','myMusicAudio1')">
+                            <div class="img"><img src="img/music1.png" alt="img" draggable="false"></div>
+                            <h2>Duman</h2>
+                            <span>Olmadı Yar</span>
+                            <audio id="myMusicAudio1">
+                                <source src="img/music1.mp3" type="audio/mpeg">
+                            </audio>
+                        </li>
+                        <li id="musicCard3" class="card musiccard" onclick="playAudio('musicCard3','musicOffImg','musicOff','myMusicAudio2')">
+                            <div class="img"><img src="img/music2.png" alt="img" draggable="false"></div>
+                            <h2>Duman</h2>
+                            <span>Helal Olsun</span>
+                            <audio id="myMusicAudio2">
+                                <source src="img/music2.mp3" type="audio/mpeg">
+                            </audio>
+                        </li>
+                        <li id="musicCard4" class="card musiccard" onclick="changeColor('card4')">
+                            <div class="img"><img src="img/music.png" alt="img" draggable="false"></div>
+                            <h2>Müzik 4</h2>
+                            <span>Freelancer</span>
+                        </li>
+                        <li id="musicCard5" class="card musiccard" onclick="changeColor('card5')">
+                            <div class="img"><img src="img/music.png" alt="img" draggable="false"></div>
+                            <h2>Müzik 5</h2>
+                            <span>Bank Manager</span>
+                        </li>
+                        <li id="musicCard6" class="card musiccard" onclick="changeColor('card6')">
+                            <div class="img"><img src="img/music.png" alt="img" draggable="false"></div>
+                            <h2>Müzik 6</h2>
+                            <span>App Designer</span>
+                        </li>
+                    </ul>
+                    <i id="right2" class="fa-solid fa-angle-right musicright"></i>
+                </div>
+            </div>
+            
+            <!-- Voice Command Control  -->
+            <div class="slide">
+                <div id="voiceCommandOff"
+                    onclick="voiceCommandOnButton('voiceCommandOff','prevButton','nextButton','wrapper3')">
+                    <img id="voiceCommandOffImg" src="img\voiceCommand.png" alt="">
+                </div>
+
+                <div class="wrapper" id="wrapper3">
+                    <i id="left3" class="fa-solid fa-angle-left voiceleft"></i>
+                    <ul class="voicecarousel" id="voicecarousel">
+                        <li id="voiceCard1" class="card voicecard"
+                            onclick="voiceCommandOffButton('wrapper3','voiceCommandOff','nextButton','prevButton')">
+                            <div class="img"><img src="img/remoteControlButton4.png" alt="img" draggable="false"></div>
+                            <h2>Menüye Dön</h2>
+                            <br>
+                        </li>
+                        <li id="voiceCard1" class="card voicecard" onclick="speakText('voiceCommand1')">
+                            <div class="img" style="width:80%;"><img src="img/voice1.png"  alt="img" draggable="false"></div>
+                            <h2 id="voiceCommand1">Tuvalet ihtiyacımı gidermem gerek</h2>
+                        </li>
+                        <li id="voiceCard2" class="card voicecard"  onclick="speakText('voiceCommand2')">
+                            <div class="img" style="width:80%;"><img src="img/voice2.png"alt="img" draggable="false"></div>
+                            <h2 id="voiceCommand2">Karnım Acıktı</h2>
+                            <br>
+                        </li>
+                        <li id="voiceCard3" class="card voicecard" onclick="speakText('voiceCommand3')">
+                            <div class="img" style="width:80%;"><img src="img/voice3.png" alt="img" draggable="false" ></div>
+                            <h2 id="voiceCommand3">Su içmek istiyorum</h2>
+                            <br>
+                        </li>
+                        <li id="voiceCard4" class="card voicecard" onclick="speakText('voiceCommand4')">
+                            <div class="img" style="width:80%;"><img src="img/voice4.png" alt="img" draggable="false"></div>
+                            <h2 id="voiceCommand4">Camı açabilir misin?</h2>
+                            <br>
+                        </li>
+                        <li id="voiceCard5" class="card voicecard" onclick="FavOn('wrapper3','favoritesSection')">
+                            <div class="img"  style="width:80%;"><img src="img/voice5.png" alt="img" draggable="false"></div>
+                            <h2>Favori Mesajlar</h2>
+                            <br>
+                            
+                        </li>
+                        <li id="voiceCard6" class="card voicecard" onclick="keyboardOn('wrapper3','voiceSlideKeyboard')">
+                            <div class="img" style="width:80%;"><img src="img/voice6.png" alt="img" draggable="false"></div>
+                            <h2>Klavye</h2>
+                            <br>
+                        </li>
+                    </ul>""
+                    <i id="right3" class="fa-solid fa-angle-right voiceright"></i>
+                </div>
+
+                <div id="voiceSlideKeyboard">
+                    <div id="favSection">
+                        <input type="text" id="favTextbox" readonly>
+                        <button onclick="addCharacter('FAV_EKLE')">Favori Ekle</button>
+                        <button onclick="addCharacter('FAV_SIL')">Favori Sil</button>
+                        <button onclick="addCharacter('FAV_DUZENLE')">Favori Düzenle</button>
+                      </div>
+                    
+                      <div class="keyboardCommand">
+                        <div id="keyboard">
+                          <div class="row rowActive">
+                            <button class="key active" onclick="addCharacter('A')">A</button>
+                            <button class="key" onclick="addCharacter('B')">B</button>
+                            <button class="key" onclick="addCharacter('C')">C</button>
+                            <button class="key" onclick="addCharacter('D')">D</button>
+                            <button class="key" onclick="addCharacter('E')">E</button>
+                            <button class="key" onclick="addCharacter('BOSLUK')"><img src="img\space.png" alt=""></button>
+                            <button class="key" onclick="keyboardOff('wrapper3','voiceSlideKeyboard')"><img src="img\remoteControlButton4.png" alt=""></button>
+                          </div>
+                          <div class="row">
+                            <button class="key" onclick="addCharacter('F')">F</button>
+                            <button class="key" onclick="addCharacter('G')">G</button>
+                            <button class="key" onclick="addCharacter('H')">H</button>
+                            <button class="key" onclick="addCharacter('I')">I</button>
+                            <button class="key" onclick="addCharacter('J')">J</button>
+                            <button class="key" onclick="addCharacter('SIL')"><img src="img\backspace.png" alt=""></button>
+                            <button class="key" onclick="addCharacter('RESET')"><img src="img\reset.png" alt=""></button>
+                          </div>
+                          <div class="row">
+                            <button class="key" onclick="addCharacter('K')">K</button>
+                            <button class="key" onclick="addCharacter('L')">L</button>
+                            <button class="key" onclick="addCharacter('M')">M</button>
+                            <button class="key" onclick="addCharacter('N')">N</button>
+                            <button class="key" onclick="addCharacter('O')">O</button>
+                            <button class="key" onclick="addCharacter('SESLENDIR')"><img src="img\voiceVolume.png" alt=""></button>
+                          </div>
+                          <div class="row">
+                            <button id="keyboard1" class="key" onclick="addCharacter('P')">P</button>
+                            <button class="key" onclick="addCharacter('R')">R</button>
+                            <button class="key" onclick="addCharacter('S')">S</button>
+                            <button class="key" onclick="addCharacter('T')">T</button>
+                            <button class="key" onclick="addCharacter('U')">U</button>
+                            <button id="keyboardfavbutton" class="key" onclick="addCharacter('FAV')"><img src="img\favorite.png" alt=""></button>
+                            <button id="keyboardupdate" class="key" onclick="addCharacter('UPDATE')" style="display:none"><img src="img\changes.png" alt=""></button>
+                          </div>
+                          <div class="row">
+                            <button class="key" onclick="addCharacter('V')">V</button>
+                            <button class="key" onclick="addCharacter('W')">W</button>
+                            <button class="key" onclick="addCharacter('Y')">Y</button>
+                            <button class="key" onclick="addCharacter('Z')">Z</button>
+                            <button class="key" onclick="addCharacter('X')">X</button>
+                            <button class="key" onclick="addCharacter('Q')">Q</button>
+                          </div>
+                          <div class="row">
+                            <button class="key" onclick="addCharacter('1')">1</button>
+                            <button class="key" onclick="addCharacter('2')">2</button>
+                            <button class="key" onclick="addCharacter('3')">3</button>
+                            <button class="key" onclick="addCharacter('4')">4</button>
+                            <button class="key" onclick="addCharacter('5')">5</button>
+                            <button class="key" onclick="addCharacter('.')">.</button>
+                          </div>
+                          <div class="row">
+                            <button class="key" onclick="addCharacter('6')">6</button>
+                            <button class="key" onclick="addCharacter('7')">7</button>
+                            <button class="key" onclick="addCharacter('8')">8</button>
+                            <button class="key" onclick="addCharacter('9')">9</button>
+                            <button class="key" onclick="addCharacter('0')">0</button>
+                            <button class="key" onclick="addCharacter(',')">,</button>
+                          </div>
+                        </div> 
+                          
+                        <div class="keyboardText">
+                        <textarea id="textbox" placeholder="Seslendirilecek metni yazınız..."></textarea>
+                        <button id="keyboardPrevButton" ><img src="img\prevButton.png" alt=""></button>
+                        <button id="keyboardNextButton" ><img src="img\nextButton.png" alt=""></button>
+                    
+                        </div>
+                      
+                      </div>
+                </div>
+
+                <div id="favoritesSection">
+                    <img id="nofilefav" src="img\favVoice.png" alt="">
+                    <!-- <h3>Favoriler</h3> -->
+                    <ul id="favoritesList"></ul>
+
+                    <button class="favback" onclick="FavOff('wrapper3','favoritesSection')"><img src="img\remoteControlButton4.png" alt=""></button>
+                    
+                    <img id="deletefav" style="display:none;" src="img\reset.png" alt="">
+                    <img id="editfav" style="display:none;" src="img\edit.png" alt="">
+                    
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="router.js"></script>
+</body>
+
+</html>
